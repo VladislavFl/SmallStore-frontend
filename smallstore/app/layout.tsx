@@ -1,7 +1,7 @@
 import Layout, { Header, Content, Footer } from "antd/es/layout/layout";
 import "./globals.css";
-import { Menu } from "@/../node_modules/antd/es/index";
 import Link from "@/node_modules/next/link";
+import Menu from "antd/es/menu";
 
 
 const items = [
