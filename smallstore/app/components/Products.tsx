@@ -3,10 +3,12 @@ import { CardTitle } from "./Cardtitle"
 import Button from "antd/es/button/button"
 
 interface Props {
-    products: Product[]
+    products: Product[];
+    handleDelete: (id: string) => void;
+    handleOpen: (product: Product) => void;
 }
 
-export const Products = ({products}: Props) => {
+export const Products = ({ products, handleDelete, handleOpen }: Props) => {
     return (
         <div className="cards">
             {products.map((product : Product) => (
@@ -17,10 +19,17 @@ export const Products = ({products}: Props) => {
                 >
                     <p>{product.description}</p>
                     <div className="card__buttons">
-                        <Button>
+                        <Button
+                            onClick={() => handleOpen(product)}
+                            style={{ flex: 1 }}
+                        >
                             Edit
                         </Button>
-                        <Button>
+                        <Button
+                            onClick={() => handleDelete(product.id)}
+                            danger
+                            style={{ flex: 1 }}    
+                        >
                             Delete
                         </Button>
                     </div>
